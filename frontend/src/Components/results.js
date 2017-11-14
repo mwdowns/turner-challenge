@@ -11,13 +11,13 @@ class Results extends React.Component {
             if (typeof result === 'string') {
                 name = result;
             } else {
-                name = <Link to={`/single/${result.id}`}>{result.name}</Link>;
+                name = <Link className="resultLink" to={`/single/${result.id}`}>{result.name}</Link>;
             } 
         }
     
         
         return (
-            <div>{name}</div>
+            <div className="result">{name}</div>
         )
     }
 }

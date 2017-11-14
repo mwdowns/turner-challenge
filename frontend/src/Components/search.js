@@ -68,7 +68,7 @@ class Search extends React.Component {
                     />
                 </div>
                 <div className="link">
-                    <Link to={`/fullList`}>See All Movies</Link>
+                    <Link className="allLink" to={`/fullList`}>See All Movies</Link>
                 </div>
             </div>
         )

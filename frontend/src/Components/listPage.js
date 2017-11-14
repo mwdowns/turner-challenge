@@ -20,18 +20,23 @@ class ListPage extends React.Component {
 
         const titlesArr = this.props.titles.map(function(title) {
             return (
-                <li key={title.id}>
-                    <Link to={`/single/${title.id}`}>{title.name} - {title.year}</Link>
-                </li>
+                <div className="movieLinkList" key={title.id}>
+                    <Link className="movieLink" to={`/single/${title.id}`}>{title.name} - {title.year}</Link>
+                </div>
             )
         });
 
         return (
-            <div className="movieList">
-                <ul>
-                    {titlesArr}
-                </ul>
-                <Link to={`/`}>Home</Link>
+            <div className="listContainer">
+                <div className="header">
+                    <h1>Behold, human. Your complete list of enterainment options!</h1>
+                </div>
+                <div className="movieList">
+                    {/* <ul> */}
+                        {titlesArr}
+                    {/* </ul> */}
+                </div>
+                <Link className="homeLink" to={`/`}>Take me Home</Link>
             </div>
         )
     }

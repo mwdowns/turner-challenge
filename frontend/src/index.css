@@ -2,22 +2,29 @@ body {
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
   height: 100%;
+  background-color: #d9e1e8;
+  color: #282c37;
 }
 
-.container, .homeContainer {
+ul {
+  list-style: none;
+}
+
+.container, .homeContainer, .listContainer {
   display: flex;
-  flex-wrap: wrap;
   
 }
 
 .container {
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-.homeContainer {
+.homeContainer, .listContainer {
+  height: 100%;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .header {
@@ -25,16 +32,33 @@ body {
   height: 30%;
 }
 
-.searchbar {
+.searchbar, .link, .homeLink, .result {
   width: 100%;
   height: 50px;
   text-align: center;
+}
+
+.searchbar {
   font-size: 2em;
 }
 
-.link {
+.resultLink {
+  text-decoration: none;
+}
+
+.homeLink, .allLink {
+  color: #2b90d9;
+  padding-top: 10px;
+}
+
+/* .movieLink {
   width: 100%;
-  height: 50px;
+  
+} */
+
+.movieLinkList {
+  width: 100%;
+  padding: 0 0 5px 0;
   text-align: center;
 }
 
