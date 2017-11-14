@@ -46,6 +46,7 @@ class Search extends React.Component {
         if (found.length) {
             found.map(function(index){
                 results.push(movieObs[index]);
+                return index;
             })
             this.setState({
                 value: event.target.value,
