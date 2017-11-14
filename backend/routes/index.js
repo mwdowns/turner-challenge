@@ -17,11 +17,22 @@ router.get('/titles', function(req, res) {
 
 });
 
+router.get('/title/:id', function(req, res) {
+    let titleID = req.params.id;
+
+    db.query('SELECT title_name AS name, release_year AS year FROM title WHERE title.id = $1', titleID)
+    .then(data => {
+        res.json({data});
+    })
+    .catch(error => {
+        res.json({error});
+    })
+})
+
 router.get('/genre/:id', function(req, res) {
     let titleID = req.params.id;
-    console.log(titleID)
 
-    db.query('SELECT genre.name AS genre FROM title, title_genre, genre WHERE title_genre.title_id = 610 AND title.id = $1 AND title_genre.genre_id = genre.id', titleID)
+    db.query('SELECT genre.name AS genre FROM title, title_genre, genre WHERE title_genre.title_id = $1 AND title.id = $1 AND title_genre.genre_id = genre.id', titleID)
     .then(data => {
         res.json({data});
     })
@@ -57,7 +68,7 @@ router.get('/participants/:id', function(req, res) {
 router.get('/awards/:id', function(req, res) {
     let titleID = req.params.id;
 
-    db.query('SELECT award.award AS award, award.award_year AS year, award.award_won AS won FROM title, award WHERE title.id = 610 AND title.id = award.title_id GROUP BY award, year, won ORDER BY year', titleID)
+    db.query('SELECT award.award AS award, award.award_year AS year, award.award_won AS won FROM title, award WHERE title.id = $1 AND title.id = award.title_id GROUP BY award, year, won ORDER BY year', titleID)
     .then(data => {
         res.json({data});
     })
