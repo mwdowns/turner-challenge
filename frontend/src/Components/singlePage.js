@@ -80,17 +80,15 @@ class SinglePage extends React.Component {
 
 
     render() {
-        // console.log(this.state.altTitles);
         return (
             <div>
-                <div>something</div>
-                <Link to={`/`}>Go back to list</Link>
                 <Title name={this.state.name} year={this.state.year} />
                 <Genres genres={this.state.genres} />
                 <Story stories={this.state.stories} />
                 <Cast participants={this.state.participants} />
                 <Awards awards={this.state.awards} />
                 <AltTitles altTitles={this.state.altTitles} />
+                <Link to={`/`}>Home</Link>
             </div>
         )
     }
