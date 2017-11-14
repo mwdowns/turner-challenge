@@ -45,4 +45,8 @@ My calls to the backend, not including the first calle made to get the full list
 
 This lead to great headaches and much time wasted that I could have used polishing up the app.
 
-The search is also very rudimentary. It searches exactly for what you type in. So if you type in "annie" it will not return a result like "Annie Hall". You must type in the full name to get the result.
+The search is also very rudimentary. When you submit a search it searches exactly for what you type in. So if you type in "annie" it will not return a result like "Annie Hall". You must type in the full name to get the result.
+
+The dynamic search functionality is also lacking. I think I'm messing up somewhere with the setState method.
+
+Not sure exactly how I should feel about all of this. I think the backend is solid, but the frontend is not. Maybe it's a good start for just learning React this weekend? Or maybe it's not.
