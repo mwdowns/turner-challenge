@@ -1,4 +1,5 @@
-#Code Challenge for a certain company here in Atlanta
+Code Challenge for a certain company here in Atlanta
+====================================================
 
 This was a code challenge I was given for a certain media company that will go un-named because I don't want anyone copying my stuff for the challenge (Haha! Jokes on them cause this code is...well...rough). Anyway, the criteria were that it had to be:
 
@@ -8,7 +9,8 @@ This was a code challenge I was given for a certain media company that will go u
 + List results of the search
 + Give more detailed info for that result
 
-##Getting Started
+Getting Started
+-----------------
 
 If you are reading this, you're on Github. So, go ahead and clone this repo. Either download the zip file and unzip the repo on your computer, or you can use Terminal/PowerShell to:
 
@@ -32,7 +34,8 @@ Then run
 
 This will start up the React frontend and should open up a page in your browser with the app.
 
-##Thoughts and Musings on this Exercise
+Thoughts and Musings on this Exercise
+-------------------------------------
 
 The backend is Node and Express using a PostgreSQL database. I built this part first and tested my routes and db queries using Postico for the queries and Postman for the routes. I stayed away from long convoluted SQL searches, which, while easier, might have been the reason for my problems on the frontend. I am happy with the backend.
 
