@@ -43,7 +43,7 @@ This is the second React app I've built, the first being a tic-tac-toe game from
 
 My calls to the backend, not including the first calle made to get the full list of movie titles available in the db, tended to result in a data type that I could not manipulate. I should be recieving an array of objects back, but when I'd make the call and get the result, I got error messages saying the result was undefined. Even though, when I "console logged" the result, I could see the array of objects with the correct information in the console.
 
-This lead to great headaches and much time wasted that I could have used polishing up the app.
+This lead to great headaches and much time wasted that I could have used polishing up the app. I ended up figuring out a solution in the end. Not sure if it's the right solution, but it displays the information.
 
 The search is also very rudimentary. When you submit a search it searches exactly for what you type in. So if you type in "annie" it will not return a result like "Annie Hall". You must type in the full name to get the result.
 
