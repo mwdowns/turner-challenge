@@ -34,7 +34,7 @@ class Search extends React.Component {
             return movie;
         })
         if (result === '') {
-            result = "Movie not found...";
+            result = "Movie not found. Womp womp! Try searching again!";
         }
         this.state.results.push(result);
         this.setState({
@@ -47,7 +47,10 @@ class Search extends React.Component {
     render() {
         
         return (
-            <div>
+            <div className="homeContainer">
+                <div className="header">
+                    <h1>Hello, puny human! What entertainment would you like to search for today?</h1>
+                </div>
                 <div className="searchDiv">
                     <form onSubmit={this.handleSubmit}>
                         <input

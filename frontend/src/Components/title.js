@@ -5,7 +5,10 @@ class Title extends React.Component {
     
     render() {
         return (
-            <div>{this.props.name} - {this.props.year}</div>
+            <div>
+                <div className="title">{this.props.name}</div>
+                <div className="year">{this.props.year}</div>
+            </div>
         )
     }
 }

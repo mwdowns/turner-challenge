@@ -12,10 +12,13 @@ class Genres extends React.Component {
         // })
         return (
             <div>
-                <div>Genres:{genres}</div>
-                {/* <ul>
-                    {genres}
-                </ul> */}
+                <div className="container">
+                    <div className="genres">Genres:</div>
+                    <div className="genreResults">
+                        <div>{genres}</div>
+                        <div>this should be split up, but I'm having trouble with the state object</div>
+                    </div>
+                </div>
             </div>
         )
     }

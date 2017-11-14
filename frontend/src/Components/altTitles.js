@@ -5,7 +5,10 @@ class AltTitles extends React.Component {
 
     render() {
         return (
-            <div>AltTitle</div>
+            <div className="container">
+                <div className="altTitle">Cast and Crew:</div>
+                <div className="altTitleDetails">See above...</div>
+            </div>
         )
     }
 }

@@ -5,7 +5,11 @@ class Cast extends React.Component {
 
     render() {
         return (
-            <div>Cast</div>
+            <div className="container">
+                <div className="cast">Cast and Crew:</div>
+                <div className="names">See above...</div>
+            </div>
+
         )
     }
     

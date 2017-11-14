@@ -82,6 +82,9 @@ class SinglePage extends React.Component {
     render() {
         return (
             <div>
+                <div className="header">
+                    <h1>Your selection, human. Please enjoy your bread and circuses!</h1>
+                </div>
                 <Title name={this.state.name} year={this.state.year} />
                 <Genres genres={this.state.genres} />
                 <Story stories={this.state.stories} />

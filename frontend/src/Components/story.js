@@ -5,9 +5,12 @@ class Story extends React.Component {
 
     render() {
         // let stories = this.props.stories
-        
+
         return (
-            <div>Story:</div>
+            <div className="container">
+                <div className="story">Story:</div>
+                <div className="description">Same problem as above with the object</div>
+            </div>
         )
     }
     
