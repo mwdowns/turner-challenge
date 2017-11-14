@@ -7,7 +7,12 @@ class Results extends React.Component {
     render() {
         let name;
         if (this.props.result.length !== 0) {
-            name = <Link to={`/single/${this.props.result[0].id}`}>{this.props.result[0].name}</Link>;
+            let result = this.props.result[0];
+            if (typeof result === 'string') {
+                name = result;
+            } else {
+                name = <Link to={`/single/${result.id}`}>{result.name}</Link>;
+            } 
         }
     
         

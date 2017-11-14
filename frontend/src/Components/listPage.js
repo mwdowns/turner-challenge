@@ -31,6 +31,7 @@ class ListPage extends React.Component {
                 <ul>
                     {titlesArr}
                 </ul>
+                <Link to={`/`}>Home</Link>
             </div>
         )
     }
