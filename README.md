@@ -39,9 +39,9 @@ Thoughts and Musings on this Exercise
 
 The backend is Node and Express using a PostgreSQL database. I built this part first and tested my routes and db queries using Postico for the queries and Postman for the routes. I stayed away from long convoluted SQL searches, which, while easier, might have been the reason for my problems on the frontend. I am happy with the backend.
 
-This is the second React app I've built, the first being a tic-tac-toe game from the React Tutorial on their homepage. I think I'm getting it, but there are still some fuzzy areas that I don't quite understand and are apparent in this app. I will explain in detail.
+This is the second React app I've built, the first being a tic-tac-toe game from the React Tutorial on their homepage. I think I'm getting it, but there are still some fuzzy areas that I don't quite understand and are apparent in this app. I will explain in some detail.
 
-My calls to the backend, not including the first calle made to get the full list of movie titles available in the db, tended to result in a data type that I could not manipulate. I should be recieving an array of objects back, but when I'd make the call and get the result, I got error messages saying the result was undefined. Even though, when I "console logged" the result, I could see the array of objects with the correct information in the console.
+My calls to the backend, not including the first call made to get the full list of movie titles available in the db, tended to result in a data type that I could not manipulate. I should be recieving an array of objects back, but when I'd make the call and get the result, I got error messages saying the result was undefined. Even though, when I "console logged" the result, I could see the array of objects with the correct information in the console.
 
 This lead to great headaches and much time wasted that I could have used polishing up the app. I ended up figuring out a solution in the end. Not sure if it's the right solution, but it displays the information.
 
@@ -49,4 +49,4 @@ The search is also very rudimentary. When you submit a search it searches exactl
 
 The dynamic search functionality is also lacking. I think I'm messing up somewhere with the setState method.
 
-Not sure exactly how I should feel about all of this. I think the backend is solid, but the frontend is not. Maybe it's a good start for just learning React this weekend? Or maybe it's not.
+Not sure exactly how I should feel about all of this. I think the backend is solid, but the frontend is not. Maybe it's a good start for someone who just learned React this weekend? Or maybe it's not. I still tend to shy away from working too much on stlying...I just find that ROI for the time I spend trying to move this one block 5px to the left is not great.
