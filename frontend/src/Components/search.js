@@ -12,13 +12,53 @@ class Search extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.getIndexes = this.getIndexes.bind(this);
     }
 
+    getIndexes(movies, input) {
+        let indexes = [];
+        input = input.toUpperCase();
+        if (!input.length) {
+            return indexes;
+        }
+        movies.map(function(movie, index) {
+            movie.toUpperCase()
+            if (movie.includes(input)) {
+                indexes.push(index);
+            }
+            return movie;
+        })
+        console.log(indexes);
+        return indexes;
+    }
+
+
     handleChange(event) {
-        this.setState({
-            value: event.target.value,
-            results: [],
-        });
+
+        let val = event.target.value;
+        let movies = this.props.titles.map(function(film) {
+            return film.name;
+        })
+        let movieObs = this.props.titles;
+        let results = [];
+
+        let found = this.getIndexes(movies, val);
+        if (found.length) {
+            found.map(function(index){
+                results.push(movieObs[index]);
+            })
+            this.setState({
+                value: event.target.value,
+                results: results,
+            })
+        } else {
+            this.setState({
+                value: event.target.value,
+                results: [],
+            });
+        }
+
+        
     }
 
     handleSubmit(event) {
