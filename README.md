@@ -1,7 +1,7 @@
 Code Challenge for a certain company here in Atlanta
 ====================================================
 
-This was a code challenge I was given for a certain media company that will go un-named (but is obvious given the name) because I don't want anyone copying my stuff for the challenge (Haha! Jokes on them cause this code is...well...rough). Anyway, the criteria were that it had to be:
+This was a code challenge I was given for a certain media company that will go un-named (but is obvious given the repo-title) because I don't want anyone copying my stuff for the challenge (Haha! Jokes on them cause this code is...well...rough). Anyway, the criteria were that it had to be:
 
 + A React-Node-Express-PostgreSQL project
 + I would connect to a db they gave me access to
