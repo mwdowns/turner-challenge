@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 import Genres from './genre';
 
 class Title extends React.Component {
@@ -22,7 +21,7 @@ class Title extends React.Component {
                 genres.push(genre.genre);
                 return genre;
             })
-            console.log(genres);
+            // console.log(genres);
             this.setState({
                 genres: genres,
             })

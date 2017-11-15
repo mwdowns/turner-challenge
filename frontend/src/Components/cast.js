@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 import Awards from './awards';
 
 class Cast extends React.Component {
@@ -8,15 +7,22 @@ class Cast extends React.Component {
         super(props);
         this.state = ({
             awards: [],
+            participants: [],
+            clicked: false,
         })
+        this.fetchData = this.fetchData.bind(this);
+        this.showInfo = this.showInfo.bind(this);
     }
 
-    componentDidMount() {
-        $.get('http://localhost:8000/awards/' + this.props.titleID, (awardsFromApi) => {
+    fetchData(url) {
+        fetch(url)
+        .then(results => {
+            return results.json();
+        }).then (data => {
             let awards = [];
-            awardsFromApi.data.map(function(x) {
-                awards.push({award: x.award, year: x.year, won: x.won});
-                return x;
+            data.data.map(function(award) {
+                awards.push({award: award.award, year: award.year, won: award.won});
+                return award;
             })
             this.setState({
                 awards: awards,
@@ -24,19 +30,38 @@ class Cast extends React.Component {
         })
     }
 
+    componentDidMount() {
+        this.fetchData('http://localhost:8000/awards/' + this.props.titleID);
+    }
+
+    showInfo(data, participants) {
+        console.log(this.state.clicked);
+        if (this.state.clicked === true) {
+            this.setState({
+                clicked: false,
+                participants: [],
+            })
+        } else {
+            data = data.slice(0, 4);
+            let castAndCrew = data.map(function(person, index) {
+                return (
+                    <div className="names" key={index}>{person}</div>
+                )
+            })
+            this.setState({
+                participants: castAndCrew,
+                clicked: true,
+            });
+        }
+    }
+
     render() {
-        let participants = this.props.participants.slice(0, 4);
-        let castAndCrew = participants.map(function(person, index) {
-            return (
-                <div className="names" key={index}>{person}</div>
-            ) 
-        });
 
         return (
             <div>
                 <div className="castContainer">
-                    <div className="cast">Cast and Crew:</div>
-                    {castAndCrew}
+                    <div className="cast"><button onClick={() => this.showInfo(this.props.participants, this.state.particiapants)}>Cast and Crew</button></div>
+                    {this.state.participants}
                 </div>
                 <Awards 
                     awards={this.state.awards}

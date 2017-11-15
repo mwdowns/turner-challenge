@@ -38,7 +38,7 @@ class Awards extends React.Component {
         return (
             <div>
                 <div className="awardsContainer">
-                    <div className="awards">Cast and Crew:</div>
+                    <div className="awards">Awards:</div>
                     <div className="awardDetails">{display}</div>
                 </div>
                 <AltTitles altTitles={this.state.altTitles} />

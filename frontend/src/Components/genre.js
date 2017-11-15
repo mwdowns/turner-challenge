@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 import Story from './story';
 
 class Genres extends React.Component {
