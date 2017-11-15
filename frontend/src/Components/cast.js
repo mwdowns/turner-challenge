@@ -35,7 +35,6 @@ class Cast extends React.Component {
     }
 
     showInfo(data, participants) {
-        console.log(this.state.clicked);
         if (this.state.clicked === true) {
             this.setState({
                 clicked: false,
