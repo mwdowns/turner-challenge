@@ -8,7 +8,10 @@ class Story extends React.Component {
         super(props);
         this.state = ({
             participants: [],
+            stories: [],
+            clicked: false,
         })
+        this.showInfo = this.showInfo.bind(this);
     }
 
     componentDidMount() {
@@ -24,18 +27,34 @@ class Story extends React.Component {
         })
     }
 
+    showInfo(data, stories) {
+        if (this.state.clicked === true) {
+            this.setState({
+                clicked: false,
+                stories: [],
+            })
+        } else {
+            data.map(function(story) {
+                stories.push(
+                    <div className="description" key={story.source}>{story.description}</div>
+                )
+                return story;
+            })
+            this.setState({
+                stories: stories[0],
+                clicked: true,
+            });
+        }
+    }
+
     render() {
-        let stories = this.props.stories.map(function(story) {
-            return (
-                <div key={story.source}>{story.description}</div>
-            )
-        })
+        let stories = [];
 
         return (
             <div>
                 <div className="storyContainer">
-                    <div className="story">Story:</div>
-                    <div className="description">{stories[0]}</div>
+                    <div className="story"><button onClick={() => this.showInfo(this.props.stories, stories)}>Story</button></div>
+                    {this.state.stories}
                 </div>
                 <Cast 
                     participants={this.state.participants}

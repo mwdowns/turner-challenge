@@ -1,13 +1,6 @@
 import React from 'react';
-import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import Title from './title';
-
-
-
-
-
-
 
 class SinglePage extends React.Component {
 
@@ -16,15 +9,23 @@ class SinglePage extends React.Component {
         this.state = {
             titleID: this.props.match.params.id,
         }
+        this.fetchTitle = this.fetchTitle.bind(this);
+    }
+
+    fetchTitle(url) {
+        fetch(url)
+        .then(results => {
+            return results.json();
+        }).then (data => {
+            this.setState({
+                name: data.data[0].name,
+                year: data.data[0].year,
+            })
+        })
     }
 
     componentDidMount() {
-        $.get('http://localhost:8000/title/' + this.state.titleID, (titlesFromApi) => {
-            this.setState({
-                name: titlesFromApi.data[0].name,
-                year: titlesFromApi.data[0].year,
-            })
-        })
+        this.fetchTitle('http://localhost:8000/title/' + this.state.titleID);
     }
 
 

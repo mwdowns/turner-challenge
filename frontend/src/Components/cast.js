@@ -25,18 +25,18 @@ class Cast extends React.Component {
     }
 
     render() {
-        let castAndCrew = this.props.participants.slice(0, 4);
-        castAndCrew.map(function(person, index) {
+        let participants = this.props.participants.slice(0, 4);
+        let castAndCrew = participants.map(function(person, index) {
             return (
-                <div key={index}>{person.name}</div>
+                <div className="names" key={index}>{person}</div>
             ) 
-        })
+        });
 
         return (
             <div>
                 <div className="castContainer">
                     <div className="cast">Cast and Crew:</div>
-                    <div className="names">{castAndCrew}</div>
+                    {castAndCrew}
                 </div>
                 <Awards 
                     awards={this.state.awards}

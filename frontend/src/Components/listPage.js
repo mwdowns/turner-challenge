@@ -4,17 +4,6 @@ import { Link } from 'react-router-dom';
 // import Search from './search';
 
 class ListPage extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         searchText: '',
-    //         searchResults: [],
-    //     }
-    // }
-
-    // handleChange(value) {
-    //     console.log('heyo');
-    // }
 
     render() {
 
