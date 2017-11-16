@@ -19,9 +19,7 @@ router.get('/titles', function(req, res) {
 
 router.get('/fullinfo/:id', function(req, res) {
     let titleID = req.params.id;
-    console.log(titleID);
     db.task('fullinfo', t => {
-        console.log(t.ctx);
         return t.batch([
             t.any('SELECT title_name AS name, release_year AS year FROM title WHERE title.id = $1', titleID),
             t.any('SELECT genre.name AS genre FROM title, title_genre, genre WHERE title_genre.title_id = $1 AND title.id = $1 AND title_genre.genre_id = genre.id', titleID),
@@ -32,7 +30,15 @@ router.get('/fullinfo/:id', function(req, res) {
         ]);
     })
     .then(data => {
-        res.json({data});
+        res.json({
+            title: data[0][0].name,
+            year: data[0][0].year,
+            genres: data[1],
+            stories: data[2],
+            participants: data[3],
+            awards: data[4],
+            altTitles: data[5]
+        });
     })
     .catch(error => {
         res.json({error});

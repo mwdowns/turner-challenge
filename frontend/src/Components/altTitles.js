@@ -1,5 +1,4 @@
 import React from 'react';
-// import $ from 'jquery';
 
 class AltTitles extends React.Component {
     constructor(props) {
@@ -19,8 +18,7 @@ class AltTitles extends React.Component {
         } else {
             let altTitles = data.filter(function(alt) {
                 return alt.language !== 'ENGLISH'
-            });
-            altTitles = altTitles.map(function(alt, index) {
+            }).map(function(alt, index) {
                 return (
                     <div className="altTitleDetails" key={index}>{alt.alt_title} - {alt.language}</div>
                 )
