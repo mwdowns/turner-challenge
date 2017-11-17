@@ -56,9 +56,9 @@ class Page extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="pageDiv">
                 <Router>
-                    <div>
+                    <div className="routerDiv">
                         <Route exact path="/" render={(props) => ( <Search titles={this.state.titles}/> )} />
                         <Route path="/fullList" render={(props) => ( <ListPage titles={this.state.titles}/> )} />
                         <Route path="/single/:id" component={SinglePage} />

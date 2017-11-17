@@ -34,7 +34,7 @@ class Cast extends React.Component {
 
         return (
             <div className="castContainer">
-                <div className="cast"><button onClick={() => this.showInfo(this.props.participants, this.state.particiapants)}>Cast and Crew</button></div>
+                <div className="cast"><button className="infoBtn" onClick={() => this.showInfo(this.props.participants, this.state.particiapants)}>Cast and Crew</button></div>
                 {this.state.participants}
             </div>
         )

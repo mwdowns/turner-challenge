@@ -38,7 +38,7 @@ class Story extends React.Component {
         let stories = [];
         return (
             <div className="storyContainer">
-                <div className="story"><button onClick={() => this.showInfo(this.props.stories, stories)}>Story</button></div>
+                <div className="story"><button className="infoBtn" onClick={() => this.showInfo(this.props.stories, stories)}>Story</button></div>
                 {this.state.stories}
             </div>
         )

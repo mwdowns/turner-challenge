@@ -34,7 +34,7 @@ class Genres extends React.Component {
         console.log(this.state.genres);
         return (
             <div className="genreContainer">
-                <div className="genres"><button onClick={() => this.showInfo(this.props.genres, this.state.genres)}>Genres</button></div>
+                <div className="genres"><button className="infoBtn" onClick={() => this.showInfo(this.props.genres, this.state.genres)}>Genres</button></div>
                 {this.state.genres}
             </div>
         )

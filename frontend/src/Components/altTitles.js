@@ -36,7 +36,7 @@ class AltTitles extends React.Component {
     render() {
         return (
             <div className="altTitleContainer">
-                <div className="altTitle"><button onClick={() => this.showInfo(this.props.altTitles, this.state.altTitles)}>Alternate Titles</button></div>
+                <div className="altTitle"><button className="infoBtn" onClick={() => this.showInfo(this.props.altTitles, this.state.altTitles)}>Alternate Titles</button></div>
                 {this.state.altTitles}
             </div>
         )

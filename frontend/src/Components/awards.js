@@ -35,7 +35,7 @@ class Awards extends React.Component {
         
         return (
             <div className="awardsContainer">
-                <div className="awards"><button onClick={() => this.showInfo(this.props.awards, this.state.awards)}>Awards</button></div>
+                <div className="awards"><button className="infoBtn" onClick={() => this.showInfo(this.props.awards, this.state.awards)}>Awards</button></div>
                 {this.state.awards}
             </div>
         )

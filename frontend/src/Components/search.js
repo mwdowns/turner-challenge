@@ -21,14 +21,13 @@ class Search extends React.Component {
         if (!input.length) {
             return indexes;
         }
+       let re = new RegExp(input, "g");
         movies.map(function(movie, index) {
-            movie.toUpperCase()
-            if (movie.includes(input)) {
+            if (movie.toUpperCase().search(re) !== -1) {
                 indexes.push(index);
             }
             return movie;
         })
-        console.log(indexes);
         return indexes;
     }
 
@@ -44,7 +43,8 @@ class Search extends React.Component {
 
         let found = this.getIndexes(movies, val);
         if (found.length) {
-            found.map(function(index){
+            found = found.map(function(index){
+                console.log(movieObs[index]);
                 results.push(movieObs[index]);
                 return index;
             })
@@ -64,7 +64,6 @@ class Search extends React.Component {
 
     handleSubmit(event) {
         let search = this.state.value.toUpperCase();
-        console.log(search)
         event.preventDefault();
         let results = '';
         this.props.titles.map(function(movie) {

@@ -7,13 +7,20 @@ class ListPage extends React.Component {
     render() {
 
         let titlesArr = this.props.titles.map(function(title) {
-            console.log(title.url);
-            return (
-                <div className="movieLinkList" key={title.id}>
-                    <img src={title.url} alt="movie poster"/>
+            if (title.url === undefined) {
+                return (
+                    <div className="movieLinkList" key={title.id}>
                     <Link className="movieLink" to={`/single/${title.id}`}>{title.name} - {title.year}</Link>
                 </div>
-            )
+                )
+            } else {
+                return (
+                    <div className="movieLinkList" key={title.id}>
+                        <img src={title.url} alt="movie poster"/>
+                        <Link className="movieLink" to={`/single/${title.id}`}>{title.name} - {title.year}</Link>
+                    </div>
+                )
+            }  
         })
 
         return (
