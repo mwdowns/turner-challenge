@@ -44,7 +44,6 @@ class Search extends React.Component {
         let found = this.getIndexes(movies, val);
         if (found.length) {
             found = found.map(function(index){
-                console.log(movieObs[index]);
                 results.push(movieObs[index]);
                 return index;
             })

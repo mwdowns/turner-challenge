@@ -5,7 +5,6 @@ class Results extends React.Component {
 
     render() {
         let name;
-        console.log(this.props.results);
         if (this.props.results.length === 1) {
             let results = this.props.results[0];
             if (typeof results === 'string') {
