@@ -32,6 +32,10 @@ class SinglePage extends React.Component {
                 altTitles: data.altTitles,
             })
         })
+        .catch(error => {
+            console.log(error);
+            return error.json();
+        })
     }
 
     componentDidMount() {
@@ -46,38 +50,30 @@ class SinglePage extends React.Component {
                 <div className="header">
                     <h1>Your selection, human. Please enjoy your bread and circuses!</h1>
                 </div>
-                <Title 
-                        title={this.state.title} 
-                        year={this.state.year}
-                />
-                <div className="container">
-                    {/* <div className="genreContainner"> */}
-                        <Genres 
-                            genres={this.state.genres}
-                        />
-                    {/* </div>
-                    <div className="storyContainner"> */}
-                        <Story
-                            stories={this.state.stories}
-                        />
-                    {/* </div>
-                    <div className="castContainner"> */}
-                        <Cast
-                            participants={this.state.participants}
-                        />
-                    {/* </div>
-                    <div className="awardsContainner"> */}
-                        <Awards
-                            awards={this.state.awards}
-                        />
-                    {/* </div>
-                    <div className="altTitleContainner"> */}
-                        <AltTitles
-                            altTitles={this.state.altTitles}
-                        />
-                    {/* </div> */}
+                <div className="infoContainer">
+                    <Title 
+                            title={this.state.title} 
+                            year={this.state.year}
+                    />
+                    <Genres 
+                        genres={this.state.genres}
+                    />
+                    <Story
+                        stories={this.state.stories}
+                    />
+                    <Cast
+                        participants={this.state.participants}
+                    />
+                    <Awards
+                        awards={this.state.awards}
+                    />
+                    <AltTitles
+                        altTitles={this.state.altTitles}
+                    />
                 </div>
-                <Link className="homeLink" to={`/`}>Home</Link>
+                <div className="link">
+                    <Link className="homeLink" to={`/`}>Home</Link>
+                </div>
             </div>
         )
     }

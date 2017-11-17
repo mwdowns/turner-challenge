@@ -8,7 +8,7 @@ class Search extends React.Component {
         super(props);
         this.state = {
             value: '',
-            results: [],
+            searchResults: [],
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -50,12 +50,12 @@ class Search extends React.Component {
             })
             this.setState({
                 value: event.target.value,
-                results: results,
+                searchResults: results,
             })
         } else {
             this.setState({
                 value: event.target.value,
-                results: [],
+                searchResults: [],
             });
         }
 
@@ -66,18 +66,18 @@ class Search extends React.Component {
         let search = this.state.value.toUpperCase();
         console.log(search)
         event.preventDefault();
-        let result = '';
+        let results = '';
         this.props.titles.map(function(movie) {
             let title = movie.name.toUpperCase();
             if (search === title) {
-                result = movie;
+                results = movie;
             }
             return movie;
         })
-        if (result === '') {
-            result = "Movie not found. Womp womp! Try searching again!";
+        if (results === '') {
+            results = "Movie not found. Womp womp! Try searching again!";
         }
-        this.state.results.push(result);
+        this.state.searchResults.push(results);
         this.setState({
             value: '',
         })
@@ -105,7 +105,7 @@ class Search extends React.Component {
                 </div>
                 <div className ="results">
                     <Results
-                        result={this.state.results}
+                        results={this.state.searchResults}
                     />
                 </div>
                 <div className="link">

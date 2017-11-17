@@ -5,15 +5,18 @@ import { Link } from 'react-router-dom';
 
 class ListPage extends React.Component {
 
+
     render() {
 
-        const titlesArr = this.props.titles.map(function(title) {
+        let titlesArr = this.props.titles.map(function(title) {
+            console.log(title.url);
             return (
                 <div className="movieLinkList" key={title.id}>
+                    <img src={title.url} alt="movie poster"/>
                     <Link className="movieLink" to={`/single/${title.id}`}>{title.name} - {title.year}</Link>
                 </div>
             )
-        });
+        })
 
         return (
             <div className="listContainer">
@@ -21,9 +24,7 @@ class ListPage extends React.Component {
                     <h1>Behold, human. Your complete list of enterainment options!</h1>
                 </div>
                 <div className="movieList">
-                    {/* <ul> */}
                         {titlesArr}
-                    {/* </ul> */}
                 </div>
                 <Link className="homeLink" to={`/`}>Take me Home</Link>
             </div>
