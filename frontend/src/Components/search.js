@@ -54,7 +54,7 @@ class Search extends React.Component {
         } else {
             this.setState({
                 value: event.target.value,
-                searchResults: [],
+                searchResults: ["Movie not found. Womp womp! Try searching again!"],
             });
         }
 

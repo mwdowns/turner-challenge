@@ -8,16 +8,12 @@ router.get('/titles', function(req, res) {
 
     db.query('SELECT id, title_name AS name, release_year as year FROM title ORDER BY title_name_sortable')
     .then(data => {
-        // console.log(data);
         data = data.filter(function(title) {
-            // console.log(title.name);
             return title.name.endsWith('(Part 2)') === false;
         }).map(function(title) {
-            // console.log(title.name);
             title.name = title.name.replace('(Part 1)', '');
             return title;
         });
-        console.log(data)
         res.json({data});
     })
     .catch(error => {
