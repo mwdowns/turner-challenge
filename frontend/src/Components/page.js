@@ -1,6 +1,5 @@
 import React from 'react';
 import '../index.css';
-// import $ from 'jquery';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Search from './search';
 import ListPage from  './listPage';
