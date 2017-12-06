@@ -1,47 +1,40 @@
 import React from 'react';
-import $ from 'jquery';
-import Story from './story';
 
 class Genres extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = ({
-            stories: [],
+            genres: [],
+            clicked: false,
         })
+        this.showInfo = this.showInfo.bind(this);
     }
 
-    componentDidMount() {
-        $.get('http://localhost:8000/storyline/' + this.props.titleID, (storiesFromApi) => {
-            let stories = [];
-            storiesFromApi.data.map(function(x) {
-                stories.push({source: x.source, description: x.description});
-                return x;
+    showInfo(data, genres) {
+        if (this.state.clicked === true) {
+            this.setState({
+                clicked: false,
+                genres: [],
+            })
+        } else {
+            let genreArr = data.map(function(genre, index) {
+                return (
+                    <div className="genreResults" key={index}>{genre.genre}</div>
+                )
             })
             this.setState({
-                stories: stories,
-            })
-        })
+                genres: genreArr,
+                clicked: true,
+            });
+        }
     }
     
-
     render() {
-        // console.log(this.props.genres);
-        let genres = this.props.genres.map(function(genre) {
-            return (
-                <div key={genre}>{genre}</div>
-            )
-        })
         return (
-            <div>
-                <div className="genreContainer">
-                    <div className="genres">Genres:</div>
-                    <div className="genreResults">{genres}</div>
-                </div>
-                <Story 
-                    stories={this.state.stories}
-                    titleID={this.props.titleID}
-                />
+            <div className="genreContainer">
+                <div className="genres"><button className="infoBtn" onClick={() => this.showInfo(this.props.genres, this.state.genres)}>Genres</button></div>
+                {this.state.genres}
             </div>
         )
     }

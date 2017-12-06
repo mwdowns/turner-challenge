@@ -1,50 +1,48 @@
 import React from 'react';
-import $ from 'jquery';
-import Cast from './cast';
 
 class Story extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = ({
-            participants: [],
+            stories: [],
+            clicked: false,
         })
+        this.showInfo = this.showInfo.bind(this);
     }
 
-    componentDidMount() {
-        $.get('http://localhost:8000/participants/' + this.props.titleID, (participantsFromApi) => {
-            let participants = [];
-            participantsFromApi.data.map(function(x) {
-                participants.push(x.name);
-                return x;
+    showInfo(data, stories) {
+        if (this.state.clicked === true) {
+            this.setState({
+                clicked: false,
+                stories: [],
+            })
+        } else {
+            data.map(function(story) {
+                stories.push(
+                    <div className="description" key={story.source}>
+                        <div>{story.source}</div>
+                        <div>{story.description}</div>
+                    </div>
+                )
+                return story;
             })
             this.setState({
-                participants: participants,
-            })
-        })
+                stories: stories[0],
+                clicked: true,
+            });
+        }
     }
 
     render() {
-        let stories = this.props.stories.map(function(story) {
-            return (
-                <div key={story.source}>{story.description}</div>
-            )
-        })
-
+        let stories = [];
         return (
-            <div>
-                <div className="storyContainer">
-                    <div className="story">Story:</div>
-                    <div className="description">{stories[0]}</div>
-                </div>
-                <Cast 
-                    participants={this.state.participants}
-                    titleID={this.props.titleID}
-                />
+            <div className="storyContainer">
+                <div className="story"><button className="infoBtn" onClick={() => this.showInfo(this.props.stories, stories)}>Story</button></div>
+                {this.state.stories}
             </div>
         )
     }
-    
 }
 
 export default Story;

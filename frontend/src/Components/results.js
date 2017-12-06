@@ -1,18 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 class Results extends React.Component {
 
     render() {
         let name;
-        if (this.props.result.length !== 0) {
-            let result = this.props.result[0];
-            if (typeof result === 'string') {
-                name = result;
+        if (this.props.results.length === 1) {
+            let results = this.props.results[0];
+            if (typeof results === 'string') {
+                name = results;
             } else {
-                name = <Link className="resultLink" to={`/single/${result.id}`}>{result.name}</Link>;
+                name = <Link className="resultLink" to={`/single/${results.id}`}>{results.name}</Link>;
             } 
+        } else {
+            name = this.props.results.map(function(title) {
+                return (
+                    <Link className="resultLink" to={`/single/${title.id}`} key={title.id}><div key={title.id}>{title.name}</div></Link>
+                )
+            })
         }
     
         
