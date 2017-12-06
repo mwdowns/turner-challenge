@@ -12,6 +12,8 @@ This was a code challenge I was given for a certain media company that will go u
 Getting Started
 -----------------
 
+**Note:** The db for this challenge is no longer accessible, so the app will run but not produce any results and get server timeout errors from the db calls. Womp womp.
+
 If you are reading this, you're on Github. So, go ahead and clone this repo. Either download the zip file and unzip the repo on your computer, or you can use Terminal/PowerShell to:
 
 ```git clone https://github.com/mwdowns/turner-challenge.git```
